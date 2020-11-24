@@ -9,11 +9,11 @@ from itertools import count
 def predict_salary(salary_from, salary_to):
     avg_salary = None
 
-    if salary_from is not None and salary_to is not None:
+    if salary_from and salary_to:
         avg_salary = (salary_from + salary_to) / 2
-    elif salary_from is not None:
+    elif salary_from:
         avg_salary = salary_from * 1.2
-    elif salary_to is not None:
+    elif salary_to:
         avg_salary = salary_to * 0.8
 
     return avg_salary
@@ -54,7 +54,7 @@ def vacancies_info_from_hh(prog_langs):
                 break
 
             for item in page_data['items']:
-                if item['salary'] is None:
+                if not item['salary']:
                     continue
 
                 if not item['salary']['currency'] == 'RUR':
@@ -96,7 +96,7 @@ def vacancies_info_from_sj(prog_langs):
 
             for item in page_data['objects']:
                 salary = predict_rub_salary_sj(item)
-                if predict_rub_salary_sj(item) is None:
+                if not predict_rub_salary_sj(item):
                     continue
                 avg_salaries.append(salary)
 

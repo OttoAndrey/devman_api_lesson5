@@ -111,7 +111,7 @@ def vacancies_info_from_sj(prog_langs):
     return prog_langs_info
 
 
-def dict_to_table_data(data):
+def get_table_data(data):
     table_data = []
 
     for lang, info in data.items():
@@ -142,8 +142,8 @@ def main():
     hh_info = vacancies_info_from_hh(prog_langs)
     sj_info = vacancies_info_from_sj(prog_langs)
 
-    hh_table_data = dict_to_table_data(hh_info)
-    sj_table_data = dict_to_table_data(sj_info)
+    hh_table_data = get_table_data(hh_info)
+    sj_table_data = get_table_data(sj_info)
 
     header = ['Язык программирования', 'Вакансий найдено', 'Вакансий обработано', 'Средняя зарплата']
 

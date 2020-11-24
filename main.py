@@ -65,7 +65,7 @@ def vacancies_info_from_hh(prog_langs):
         avg_salary = int(sum(avg_salaries) / len(avg_salaries))
 
         prog_langs_info[prog_lang] = {
-            'vacancies_found': response.json()['found'],
+            'vacancies_found': page_data['found'],
             'vacancies_processed': len(avg_salaries),
             'average_salary': avg_salary,
         }
@@ -103,7 +103,7 @@ def vacancies_info_from_sj(prog_langs):
         avg_salary = int(sum(avg_salaries) / len(avg_salaries))
 
         prog_langs_info[prog_lang] = {
-            'vacancies_found': response.json()['total'],
+            'vacancies_found': page_data['total'],
             'vacancies_processed': len(avg_salaries),
             'average_salary': avg_salary,
         }

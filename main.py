@@ -121,6 +121,15 @@ def get_table_data(data):
     return table_data
 
 
+def create_table(table_data, title):
+    header = ['Язык программирования', 'Вакансий найдено', 'Вакансий обработано', 'Средняя зарплата']
+    table_data.insert(0, header)
+    table = AsciiTable(table_data)
+    table.title = title
+
+    return table
+
+
 def main():
     load_dotenv()
     print('Выполняется..')
@@ -145,17 +154,11 @@ def main():
     hh_table_data = get_table_data(hh_info)
     sj_table_data = get_table_data(sj_info)
 
-    header = ['Язык программирования', 'Вакансий найдено', 'Вакансий обработано', 'Средняя зарплата']
+    hh_table = create_table(hh_table_data, 'HeadHunter Moscow')
+    sj_table = create_table(sj_table_data, 'SuperJob Moscow')
 
-    hh_table_data.insert(0, header)
-    hh_table = AsciiTable(hh_table_data)
-    hh_table.title = 'HeadHunter Moscow'
     print(hh_table.table)
     print()
-
-    sj_table_data.insert(0, header)
-    sj_table = AsciiTable(sj_table_data)
-    sj_table.title = 'SuperJob Moscow'
     print(sj_table.table)
 
 
